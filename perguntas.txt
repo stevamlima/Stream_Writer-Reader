@@ -1,0 +1,6 @@
+Nome
+Idade
+Cidade
+Estado
+CPF
+RG

@@ -10,8 +10,8 @@ namespace project_11_10_17
         {
             Console.WriteLine("\nQuestionário|");
             Console.WriteLine("============");
-            StreamWriter resp = new StreamWriter("C:\\Users\\FIC\\Desktop\\respostas.csv",true);
-            string [] perguntas = File.ReadAllLines("C:\\Users\\FIC\\Desktop\\perguntas.txt");
+            StreamWriter resp = new StreamWriter("respostas.csv",true);
+            string [] perguntas = File.ReadAllLines("perguntas.txt");
             string [] respostas = new string[perguntas.Length];
 
             for(int i=0;i<perguntas.Length;i++)
