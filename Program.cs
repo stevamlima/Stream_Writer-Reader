@@ -10,15 +10,9 @@ namespace project_11_10_17
             Console.WriteLine("\nQuestionário|");
             Console.WriteLine("============");
 
-        
-            using(FileStream fs = new FileStream("respostas.csv",FileMode.Truncate))
-            {
-                fs.Flush();
-            }
-    
             StreamWriter resp = new StreamWriter("respostas.csv",true);
-            string [] perguntas = File.ReadAllLines("perguntas.txt");
-            string [] respostas = new string[perguntas.Length]; //cria um array com o número de perguntas do arquivo
+            string [] perguntas = File.ReadAllLines("perguntas.txt"); //cria um array de perguntas para a leitura de tudo que está no txt.
+            string [] respostas = new string[perguntas.Length]; //cria um array com o número de perguntas do arquivo.
 
             FazerPerguntas(perguntas, respostas, resp);
             int a=1;
@@ -29,27 +23,27 @@ namespace project_11_10_17
                 switch(cond)
                 {
                     case 'S': case 's':
-                    FazerPerguntas(perguntas, respostas, resp);
+                    FazerPerguntas(perguntas, respostas, resp); //quando o usuário digitar 'S ou s' o código inicia a função FazerPerguntas.
                     resp.Close();
                     break;
                     case 'N': case 'n':
                     a = 0;
+                    resp.Close();
                     break;
                 }
             }
         }
 
-        static void FazerPerguntas(string[] perguntas, string[] respostas,StreamWriter resp)
+        static void FazerPerguntas(string[] perguntas, string[] respostas,StreamWriter resp) //cria a função FazerPerguntas.
         {
-
+        
         for(int i=0;i<perguntas.Length;i++)
             {
             Console.Write(perguntas[i]+":");
             respostas[i] = Console.ReadLine();
             resp.Write(respostas[i]+"; ");
             }
-            resp.WriteLine();
+
         }
-        
     }
 }
